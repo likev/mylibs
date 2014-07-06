@@ -310,6 +310,11 @@ public:
 		return true;
 	}
 
+	bool init_elevs()//供外部调用 //初始化各个仰角层
+	{
+		return init_elevations();
+	}
+
 	const RadarElevation & operator() (const std::string &el)const
 	{
 		return elevations.find(el)->second;
@@ -395,7 +400,7 @@ private:
 	}
 
 
-	
+	//初始化各个仰角层 存储于map中
 	bool init_elevations()
 	{
 		std::string cur_el;
