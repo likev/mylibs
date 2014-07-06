@@ -451,9 +451,9 @@ private:
 					elevations[cur_el].w_pos = it->PtrOfSpectrumWidth - 100;
 				}
 
-				elevations[cur_el].r_valid_this  = it->PtrOfReflectivity;
-				elevations[cur_el].v_valid_this  = it->PtrOfVelocity;
-				elevations[cur_el].w_valid_this  = it->PtrOfSpectrumWidth;
+				elevations[cur_el].r_valid_this  = it->PtrOfReflectivity != 0;
+				elevations[cur_el].v_valid_this = it->PtrOfVelocity != 0;
+				elevations[cur_el].w_valid_this = it->PtrOfSpectrumWidth != 0;
 				
 				break;
 
