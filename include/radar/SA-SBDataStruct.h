@@ -39,7 +39,7 @@ struct RadarBaseData
 	unsigned short		temp1[7];						//保留
 	unsigned short		RadarStatus;					//1 - 表示为雷达数据 
 	unsigned short		temp2[6];						//保留
-	unsigned int		mSeconds;						//径向数据收集时间(毫秒,自00:00开始)
+	unsigned int		mSeconds;						//径向数据收集时间(毫秒10-3s,自00:00开始)
 	unsigned short		JulianDate;						//从1970/1/1起的日期
 	unsigned short		URange;							//不模糊距离（表示：数值/10.=千米）
 	unsigned short		Az;								//方位角度（编码方式：[数值/8.]*[180./4096.]=度）
@@ -302,6 +302,8 @@ public:
 		{
 			alldata.push_back(oneline);
 		}
+
+		if (fin.gcount() % sizeof(SB_Base)) return false;
 
 		fin.close();
 
